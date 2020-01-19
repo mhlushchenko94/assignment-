@@ -67,10 +67,14 @@ Set of automated  tests for mobile-browsertesting.
   - type ``` source ~/.bash_profile ```
  16. Download Intellij IDEA Community ``` https://www.jetbrains.com/idea/download/#section=mac ```
  17. Open Intellij IDEI >> Open >> Folder where you stored the project from step 1
- 18. Open Project Structure >>> Project Settings >>> Project
+  18. Open Project Structure >>> Project Settings >>> Project
   - set up project SDK: 1.8
   - set up project language level: 8
   - click Apply >>> OK
+     Add Maven to test
+  - right click on the project folder in IntelliJ  
+  - add Support Framework  
+  - select Maven
  19. Project Settings >>> Modules
   - set up Language lever: 8
   in case if folders are not marked
