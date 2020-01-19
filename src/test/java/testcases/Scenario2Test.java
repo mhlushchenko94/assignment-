@@ -1,18 +1,16 @@
 package testcases;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
-import pageobject.LoginPO;
+import pageobject.Scenario2PO;
 
 import java.io.IOException;
 
-public class LoginTest extends BaseTest {
+public class Scenario2Test extends BaseTest {
 
     @Test
     public void testLogin() throws IOException, InterruptedException {
 
-        LoginPO loginPO = new LoginPO(driver);
+        Scenario2PO loginPO = new Scenario2PO(driver);
 
         loginPO.loginTestPO();
     }

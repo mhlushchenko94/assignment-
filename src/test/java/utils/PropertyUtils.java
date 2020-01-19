@@ -21,7 +21,7 @@ public class PropertyUtils {
     //login test file
     public void propLoginTestInfoFile() throws IOException {
 
-        input = new FileInputStream("src/test/java/resources/loginTestInfo.properties");
+        input = new FileInputStream("src/test/java/resources/scenario2TestInfo.properties");
         prop.load(input);
     }
 

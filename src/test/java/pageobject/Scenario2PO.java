@@ -9,12 +9,12 @@ import utils.PropertyUtils;
 
 import java.io.IOException;
 
-public class LoginPO extends BasePO {
+public class Scenario2PO extends BasePO {
 
     PropertyUtils propertyUtils = new PropertyUtils();
 
 
-    public LoginPO(AppiumDriver driver) {
+    public Scenario2PO(AppiumDriver driver) {
         super(driver);
     }
 //

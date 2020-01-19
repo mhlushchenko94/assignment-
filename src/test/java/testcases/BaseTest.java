@@ -9,16 +9,10 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Test;
 import utils.PropertyUtils;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Properties;
-import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
@@ -70,7 +64,6 @@ public class BaseTest {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         setDesiredCapabilities(capabilities);
-//        driver = new AppiumDriver(new URL(prop.getProperty("appium.server.url")), capabilities);
         driver = new AppiumDriver(new URL(propertyUtils.prop.getProperty("appium.server.url")), capabilities);
 //        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
