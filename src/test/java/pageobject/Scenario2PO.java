@@ -1,9 +1,14 @@
 package pageobject;
 
 import io.appium.java_client.AppiumDriver;
+import org.omg.CORBA.TIMEOUT;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import utils.PropertyUtils;
 
@@ -17,13 +22,10 @@ public class Scenario2PO extends BasePO {
     public Scenario2PO(AppiumDriver driver) {
         super(driver);
     }
-//
 
     @FindBy(className = "pipeWrap-sm")
     WebElement menuBtn;
 
-    //    @FindBy(className = "linkNav")
-//    @FindBy(xpath = "//*[@id=\"header\"]/section[3]/div/nav/div/div/div/div/div[1]/div/ul/li[2]/div/a")
     @FindBy(xpath = "//*[text()='Explore']")
     WebElement linkNavigator;
 
@@ -31,7 +33,6 @@ public class Scenario2PO extends BasePO {
     WebElement shoreExcursions;
 
     @FindBy(xpath = "//*[@id='search_destinations']")
-//    @FindBy(name = "destinations")
     WebElement dropDown;
 
     @FindBy(xpath = "//*[text()='Alaska Cruises']")
@@ -56,27 +57,37 @@ public class Scenario2PO extends BasePO {
     WebElement doneBtn2;
 
     @FindBy(xpath = "//*[@id=\"shorexExplore\"]/div[1]/section/div/div/div[1]/ul/li[1]/figure/figcaption/div[2]/ul/li[2]/h2/a")
-    WebElement assertionByImage;
+    WebElement assertionByPortName;
+
+
+    WebDriverWait wait =new WebDriverWait(driver,20);
 
     public void loginTestPO() throws IOException, InterruptedException {
+
 
         propertyUtils.propLoginTestInfoFile();
 
         driver.get(propertyUtils.prop.getProperty("assignment.url"));
 
+        wait.until(ExpectedConditions.visibilityOf(menuBtn));
         menuBtn.click();
-        Thread.sleep(5000);
+        wait.until(ExpectedConditions.visibilityOf(linkNavigator));
         linkNavigator.click();
+        wait.until(ExpectedConditions.visibilityOf(shoreExcursions));
         shoreExcursions.click();
+        wait.until(ExpectedConditions.visibilityOf(dropDown));
         dropDown.click();
         alaskaCruises.click();
         findBtn.click();
+        wait.until(ExpectedConditions.visibilityOf(filter));
         filter.click();
         portFilter.click();
         portVictoria.click();
         doneBtn1.click();
+        wait.until(ExpectedConditions.visibilityOf(doneBtn2));
         doneBtn2.click();
-        assertionByImage.isDisplayed();
+        wait.until(ExpectedConditions.visibilityOf(assertionByPortName));
+        Assert.assertEquals(assertionByPortName.getText(), "Butchart Gardens Evening & Victoria Highlights");
 
 
     }

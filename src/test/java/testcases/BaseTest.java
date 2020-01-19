@@ -112,22 +112,22 @@ public class BaseTest {
     }
 
     //closing emulator or simulator after test
-//    @AfterSuite
-//
-//    public void emulatorStop() throws IOException {
-//
-//        System.out.println("Emulator/Simulator closed");
-//
-//        if (platform.equalsIgnoreCase("android")) {
-//            String[] args = new String[]{"adb", "-s", "emulator-5554", "emu", "kill"};
-//
-//            Process process = new ProcessBuilder(args).start();
-//        } else {
-//            String[] args = new String[]{"killall", "Simulator"};
-//
-//            Process process = new ProcessBuilder(args).start();
-//        }
-//    }
+    @AfterSuite
+
+    public void emulatorStop() throws IOException {
+
+        System.out.println("Emulator/Simulator closed");
+
+        if (platform.equalsIgnoreCase("android")) {
+            String[] args = new String[]{"adb", "-s", "emulator-5554", "emu", "kill"};
+
+            Process process = new ProcessBuilder(args).start();
+        } else {
+            String[] args = new String[]{"killall", "Simulator"};
+
+            Process process = new ProcessBuilder(args).start();
+        }
+    }
 
 
 }
